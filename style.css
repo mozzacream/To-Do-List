@@ -150,6 +150,7 @@ li {
     position: relative;
     text-transform: capitalize;
     font-family: sans-serif;
+    font-size: 20px;
 }
 
 .done {
