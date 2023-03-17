@@ -12,6 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: linear-gradient(45deg, rgb(255, 230, 234), white);
 }
 
 main {
@@ -24,7 +25,8 @@ main {
     margin: auto;
     padding: 25px;
     box-shadow: 1px 1px 3px gray;
-    border: 0.5px solid silver;
+    border: 2px solid gray;
+    background: white;
 }
 
 h1 {
