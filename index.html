@@ -36,6 +36,11 @@
                 </ul>
             </div>
         </div>
+        <!-- <div id="finished-task">
+            <h3>done</h3>
+            <ul id="finished-list">
+            </ul>
+        </div> -->
     </main>
     <script>
         "use strict";
@@ -45,25 +50,41 @@
         const $listItem = document.getElementById('list-item');
 
         $addBtn.addEventListener('click', () => {
-            const newElement = document.createElement('li');
-            newElement.innerHTML = $input.value;
-            $listItem.appendChild(newElement);
-            $input.value = "";
+            if ($input.value !== "") {
+                const newElement = document.createElement('li');
+                // newElement.innerHTML = "running";
+                newElement.innerHTML = $input.value;
+                $listItem.appendChild(newElement);
+                $input.value = "";
 
-            const newItem = document.getElementsByTagName('li')
-            const checkIcon = document.createElement('span');
-            checkIcon.innerHTML = 'done'
-            checkIcon.classList.add('material-symbols-outlined', 'done')
+                const newItem = document.getElementsByTagName('li')
+                const checkIcon = document.createElement('span');
+                checkIcon.innerHTML = 'done'
+                checkIcon.classList.add('material-symbols-outlined', 'done')
 
-            const delIcon = document.createElement('span');
-            delIcon.innerHTML = 'delete'
-            delIcon.classList.add('material-symbols-outlined', 'delete')
+                const remIcon = document.createElement('span');
+                remIcon.innerHTML = 'delete'
+                remIcon.classList.add('material-symbols-outlined', 'delete')
 
-            for (let i = 0; i < newItem.length; i++) {
-                newItem[i].appendChild(checkIcon);
-                newItem[i].appendChild(delIcon);
+                for (let i = 0; i < newItem.length; i++) {
+                    newItem[i].appendChild(checkIcon);
+                    newItem[i].appendChild(remIcon);
+                }
+                const checkBtn = document.getElementsByClassName('done');
+                for (let i = 0; i < checkBtn.length; i++) {
+                    checkBtn[i].addEventListener('click', () => {
+                        newItem[i].classList.add('checked')
+                    })
+                }
+                const remBtn = document.getElementsByClassName('delete');
+                for (let i = 0; i < remBtn.length; i++) {
+                    remBtn[i].addEventListener('click', () => {
+                        newItem[i].classList.add('remove')
+                    })
+                }
+            } else {
+                alert('何も入力されていません。')
             }
-            const checkBtn = document.getElementsByClassName('done');
         })
 
         $deleteBtn.addEventListener('click', () => {
