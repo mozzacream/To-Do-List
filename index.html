@@ -6,17 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>To Do List</title>
 </head>
 
 <body>
     <main>
         <div id="container">
-            <h1>To Do List</h1>
+            <h1>To Do List <span class="material-symbols-outlined"
+                    style="transform: scale(2); transform-origin: 50% 56%;">
+                    done
+                </span></h1>
             <form>
-                <input type="text" id="text-input">
-                <button class="btn adding">Add</button>
-                <button class="btn deleting">Delete</button>
+                <input type="text" autocomplete="on" id="text-input">
+                <button type="button" class="btn adding">Add</button>
+                <button type="button" class="btn deleting">Delete</button>
+                <button class="btn refreshing">Refresh</button>
             </form>
             <div class="tasklist">
                 <div class="h2-border">
@@ -24,16 +30,33 @@
                     <h2>task</h2>
                     <span class="border after"></span>
                 </div>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul id="list-item">
                 </ul>
             </div>
         </div>
     </main>
     <script>
         "use strict";
+        const $input = document.getElementById('text-input');
+        const $addBtn = document.getElementsByClassName('btn adding')[0];
+        const $deleteBtn = document.getElementsByClassName('btn deleting')[0];
+        const $listItem = document.getElementById('list-item');
+
+        $addBtn.addEventListener('click', () => {
+            const newElement = document.createElement('li');
+            newElement.innerHTML = $input.value;
+            $listItem.appendChild(newElement);
+            $input.value = "";
+
+            const checkMark = document.createElement('span');
+            const newItem = document.getElementsByTagName('li')
+            checkMark.classList.add('mark')
+            for (let i = 0; i < newItem.length; i++) {
+                newItem[i].appendChild(checkMark);
+            }
+            console.log(newItem);
+        })
+
     </script>
 </body>
 
