@@ -93,7 +93,7 @@ input {
     left: 0;
     background-color: #000;
     z-index: -1;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
     transform-origin: 0 0;
 }
 
@@ -129,12 +129,21 @@ ul {
 
 li {
     margin-bottom: 15px;
+    position: relative;
 }
 
-.mark {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 500,
-        'GRAD' 0,
-        'opsz' 48
+.done {
+    position: absolute;
+    color: rgb(107, 212, 3);
+    border: solid 1px black;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.delete {
+    position: absolute;
+    margin-left: 55px;
+    color: red;
+    border: solid 1px black;
+    cursor: pointer;
 }

@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0" />
     <title>To Do List</title>
 </head>
 
 <body>
     <main>
         <div id="container">
-            <h1>To Do List <span class="material-symbols-outlined"
+            <h1>To Do List <span class="material-symbols-outlined head"
                     style="transform: scale(2); transform-origin: 50% 56%;">
                     done
                 </span></h1>
@@ -48,13 +50,24 @@
             $listItem.appendChild(newElement);
             $input.value = "";
 
-            const checkMark = document.createElement('span');
             const newItem = document.getElementsByTagName('li')
-            checkMark.classList.add('mark')
+            const checkIcon = document.createElement('span');
+            checkIcon.innerHTML = 'done'
+            checkIcon.classList.add('material-symbols-outlined', 'done')
+
+            const delIcon = document.createElement('span');
+            delIcon.innerHTML = 'delete'
+            delIcon.classList.add('material-symbols-outlined', 'delete')
+
             for (let i = 0; i < newItem.length; i++) {
-                newItem[i].appendChild(checkMark);
+                newItem[i].appendChild(checkIcon);
+                newItem[i].appendChild(delIcon);
             }
-            console.log(newItem);
+            const checkBtn = document.getElementsByClassName('done');
+        })
+
+        $deleteBtn.addEventListener('click', () => {
+            $input.value = '';
         })
 
     </script>
