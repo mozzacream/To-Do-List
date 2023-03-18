@@ -8,7 +8,6 @@ const $item = document.getElementsByTagName('li')
 $addBtn.addEventListener('click', () => {
     if ($input.value !== "" && $item.length < 11) {
         const newElement = document.createElement('li');
-        // newElement.innerHTML = "running";
         newElement.innerHTML = $input.value;
         $listItem.appendChild(newElement);
         $input.value = "";
