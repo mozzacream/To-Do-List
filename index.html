@@ -21,7 +21,8 @@
                     done
                 </span></h1>
             <form>
-                <input type="text" autocomplete="off" id="text-input">
+                <input type="text" autocomplete="off" id="text-input"
+                    onkeydown="if(event.keyCode == 13){return false;}">
                 <button type="button" class="btn adding">Add</button>
                 <button type="button" class="btn deleting">Delete</button>
                 <button class="btn refreshing">Refresh</button>
